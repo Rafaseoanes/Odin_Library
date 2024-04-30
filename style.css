@@ -1,0 +1,15 @@
+:root {
+  --puce: #d88c9aff;
+  --light-orange: #f2d0a9ff;
+  --almond: #f1e3d3ff;
+  --cambridge-blue: #99c1b9ff;
+  --gray: #ededed;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  background-color: var(--gray);
+  padding: 0;
+  margin: 0;
+}
