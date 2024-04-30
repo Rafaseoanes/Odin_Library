@@ -36,8 +36,15 @@ function displayBooks(library) {
   library.forEach((book) => {
     const carDiv = document.createElement("div");
     carDiv.classList.add("card");
-
     cardContainer.appendChild(carDiv);
+
+    const title = document.createElement("h4")
+    title.innerText = book.title
+    carDiv.appendChild(title)
+
+    const author = document.createElement("p")
+    author.innerText = book.author
+    carDiv.appendChild(author)
 
     console.log(`${book.author}`);
   });

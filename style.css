@@ -28,12 +28,20 @@ body {
 }
 #mainContainer {
   min-height: 30%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
   border: 1px red solid;
 }
 .card {
-  height: 100px;
-  width: 100px;
-  border: 1px green solid;
+  min-height: 100px;
+  min-width: 100px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  /* border: 1px green solid; */
 }
 .buttomContainer {
   display: flex;
