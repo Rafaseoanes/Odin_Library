@@ -1,3 +1,5 @@
+const cardContainer = document.getElementById("mainContainer");
+
 const myLibrary = [
   {
     title: "The little prince",
@@ -32,6 +34,11 @@ function addBookToLibrary() {
 
 function displayBooks(library) {
   library.forEach((book) => {
+    const carDiv = document.createElement("div");
+    carDiv.classList.add("card");
+
+    cardContainer.appendChild(carDiv);
+
     console.log(`${book.author}`);
   });
 }
