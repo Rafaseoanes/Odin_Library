@@ -19,6 +19,7 @@ const myLibrary = [
     pages: 40,
     read: false,
   },
+  
 ];
 
 function Book(title, author, pages, read) {
@@ -38,13 +39,26 @@ function displayBooks(library) {
     carDiv.classList.add("card");
     cardContainer.appendChild(carDiv);
 
-    const title = document.createElement("h4")
-    title.innerText = book.title
-    carDiv.appendChild(title)
+    const title = document.createElement("h3");
+    title.innerText = book.title;
+    carDiv.appendChild(title);
 
-    const author = document.createElement("p")
-    author.innerText = book.author
-    carDiv.appendChild(author)
+    const author = document.createElement("p");
+    author.innerText = `By: ${book.author}`;
+    carDiv.appendChild(author);
+
+    const pages = document.createElement("p");
+    pages.innerText = `Pages: ${book.pages}`;
+    carDiv.appendChild(pages);
+
+    const read = document.createElement("p");
+    if (book.read) {
+      read.innerText = "Readed?: ✅";
+    } else {
+      read.innerText = "Readed?: ⛔";
+    }
+    // read.innerText = book.read
+    carDiv.appendChild(read);
 
     console.log(`${book.author}`);
   });

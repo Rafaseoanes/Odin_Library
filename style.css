@@ -4,6 +4,7 @@
   --almond: #f1e3d3ff;
   --cambridge-blue: #99c1b9ff;
   --gray: #ededed;
+  --dark-blue: #2E4057;
 }
 
 body {
@@ -27,21 +28,33 @@ body {
   font-size: xx-large;
 }
 #mainContainer {
+  
+  padding: 15px 0px;
   min-height: 30%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   align-items: center;
   justify-items: center;
   gap: 10px;
-  border: 1px red solid;
+  margin-bottom: 30px;
+  /* border: 1px red solid; */
 }
 .card {
-  min-height: 100px;
-  min-width: 100px;
+
+  width: 12rem; 
+  height: 12rem;
   background-color: white;
   border-radius: 5px;
+  padding: 15px;
+  
+}
+.card h3{
+  color: var(--dark-blue);
   text-align: center;
-  /* border: 1px green solid; */
+  box-shadow: 0px 2px 0px rgba(242,208,169,1);
+}
+.card p {
+  font-size: smaller;
 }
 .buttomContainer {
   display: flex;
