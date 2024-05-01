@@ -4,7 +4,7 @@
   --almond: #f1e3d3ff;
   --cambridge-blue: #99c1b9ff;
   --gray: #ededed;
-  --dark-blue: #2E4057;
+  --dark-blue: #2e4057;
 }
 
 body {
@@ -28,7 +28,6 @@ body {
   font-size: xx-large;
 }
 #mainContainer {
-  
   padding: 15px 0px;
   min-height: 30%;
   display: grid;
@@ -40,25 +39,28 @@ body {
   /* border: 1px red solid; */
 }
 .card {
-
-  width: 12rem; 
-  height: 12rem;
+  width: 12rem;
+  height: 15rem;
   background-color: white;
   border-radius: 5px;
   padding: 15px;
-  
 }
-.card h3{
+.card h3 {
   color: var(--dark-blue);
   text-align: center;
-  box-shadow: 0px 2px 0px rgba(242,208,169,1);
+  box-shadow: 0px 2px 0px rgba(242, 208, 169, 1);
 }
 .card p {
   font-size: smaller;
 }
 .buttomContainer {
+  position: sticky;
+  bottom: 0px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 #addBookModal {
   margin: 5px;
@@ -70,7 +72,7 @@ body {
   font-weight: 600;
   border-radius: 5px;
 }
-#modal{
+#modal {
   padding: 20px 50px;
   border: none;
   border-radius: 5px;
@@ -78,24 +80,30 @@ body {
 ::backdrop {
   background-color: #00000043;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px)
+  -webkit-backdrop-filter: blur(5px);
 }
-#modal form{
+#modal form {
   display: flex;
   flex-direction: column;
 }
-#modal form input{
+#modal form input {
   margin-bottom: 20px;
   background-color: var(--gray);
   border: none;
   padding: 5px 20px;
   border-radius: 3px;
 }
-#modal form p{
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#modal form p {
   margin: 3px;
 }
 
-#closeModalButton{
+#closeModalButton {
   margin: 5px;
   padding: 5px 15px;
   border: none;
@@ -104,9 +112,8 @@ body {
   font-size: large;
   font-weight: 600;
   border-radius: 5px;
-
 }
-#addBook{
+#addBook {
   margin: 5px;
   padding: 5px 15px;
   border: none;
@@ -115,4 +122,16 @@ body {
   font-size: large;
   font-weight: 600;
   border-radius: 5px;
+}
+
+.deleteButton{
+  margin: 5px;
+  padding: 5px 15px;
+  border: none;
+  background-color: var(--puce);
+  color: white;
+  font-size: small;
+  font-weight: 500;
+  border-radius: 5px;
+  
 }

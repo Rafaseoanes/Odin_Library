@@ -5,12 +5,16 @@ const addBookModal = document.getElementById("addBookModal");
 const closeModalButton = document.getElementById("closeModalButton");
 const addBook = document.getElementById("addBook");
 
+const deleteBook = document.getElementsByClassName("deleteButton");
+
 //form inputs:
 
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
+
+const isRead = read.checked;
 
 const myLibrary = [
   {
@@ -42,7 +46,6 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
-  
 }
 
 function displayBooks(library) {
@@ -65,12 +68,18 @@ function displayBooks(library) {
     carDiv.appendChild(pages);
 
     const read = document.createElement("p");
+
     if (book.read) {
       read.innerText = "Read?: ✅";
     } else {
       read.innerText = "Read?: ⛔";
     }
     carDiv.appendChild(read);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteButton");
+    deleteButton.innerText = "Delete";
+    carDiv.appendChild(deleteButton);
   });
 }
 
@@ -85,13 +94,23 @@ closeModalButton.addEventListener("click", () => {
 });
 
 addBook.addEventListener("click", (event) => {
-  event.preventDefault();
-
   const newBook = new Book(title.value, author.value, pages.value, read.value);
+
+  newBook.index = myLibrary.length;
   addBookToLibrary(newBook);
   displayBooks(myLibrary);
 
+  console.log(isRead);
+
   console.log(newBook);
-//   console.log(myLibrary);
+  //   console.log(myLibrary);
+  removeBookButton();
+ 
   userInputDialog.close();
+  event.preventDefault();
 });
+
+function removeBookButton() {
+  //needs to be done
+}
+removeBookButton();
