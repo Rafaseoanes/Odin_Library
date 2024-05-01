@@ -19,9 +19,31 @@
       <p>&#128218;</p>
     </div>
     <div id="mainContainer"></div>
+
+    <!-- input modal: -->
+    <dialog id="modal">
+      <form action="">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" />
+
+        <label for="author">Author name:</label>
+        <input type="text" name="author" id="author" />
+
+        <label for="pages">Number of pages:</label>
+        <input type="number" name="pages" id="pages" />
+
+        <p>
+          <label for="read">Have you read it?</label>
+          <input type="checkbox" name="read" id="read" />
+        </p>
+      </form>
+      <button id="closeModalButton">Cancel</button>
+    </dialog>
+
     <div class="buttomContainer">
       <button id="addBookButton">Add Book</button>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

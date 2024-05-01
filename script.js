@@ -1,4 +1,7 @@
 const cardContainer = document.getElementById("mainContainer");
+const userInputDialog = document.getElementById("modal")
+const addBookButton = document.getElementById("addBookButton")
+const closeModalButton = document.getElementById("closeModalButton")
 
 const myLibrary = [
   {
@@ -65,3 +68,12 @@ function displayBooks(library) {
 }
 
 displayBooks(myLibrary);
+
+
+addBookButton.addEventListener("click", () => {
+    userInputDialog.showModal();
+  });
+
+  closeModalButton.addEventListener("click", () => {
+    userInputDialog.close();
+  });
