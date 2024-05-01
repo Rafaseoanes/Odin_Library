@@ -1,7 +1,7 @@
 const cardContainer = document.getElementById("mainContainer");
 
 const userInputDialog = document.getElementById("modal");
-const addBookModal = document.getElementById("addBookModal");
+const openForm = document.getElementById("openForm");
 const closeModalButton = document.getElementById("closeModalButton");
 const addBook = document.getElementById("addBook");
 
@@ -13,8 +13,6 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
-
-const isRead = read.checked;
 
 const myLibrary = [
   {
@@ -85,7 +83,7 @@ function displayBooks(library) {
 
 displayBooks(myLibrary);
 
-addBookModal.addEventListener("click", () => {
+openForm.addEventListener("click", () => {
   userInputDialog.showModal();
 });
 
@@ -94,23 +92,17 @@ closeModalButton.addEventListener("click", () => {
 });
 
 addBook.addEventListener("click", (event) => {
-  const newBook = new Book(title.value, author.value, pages.value, read.value);
+  const newBook = new Book(
+    title.value,
+    author.value,
+    pages.value,
+    read.checked
+  );
 
   newBook.index = myLibrary.length;
   addBookToLibrary(newBook);
   displayBooks(myLibrary);
 
-  console.log(isRead);
-
-  console.log(newBook);
-  //   console.log(myLibrary);
-  removeBookButton();
-
   userInputDialog.close();
   event.preventDefault();
 });
-
-function removeBookButton() {
-  //needs to be done
-}
-removeBookButton();
