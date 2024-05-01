@@ -60,7 +60,7 @@ body {
   display: flex;
   justify-content: center;
 }
-#addBookButton {
+#addBookModal {
   margin: 5px;
   padding: 5px 15px;
   border: none;
@@ -90,4 +90,29 @@ body {
   border: none;
   padding: 5px 20px;
   border-radius: 3px;
+}
+#modal form p{
+  margin: 3px;
+}
+
+#closeModalButton{
+  margin: 5px;
+  padding: 5px 15px;
+  border: none;
+  background-color: var(--puce);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 5px;
+
+}
+#addBook{
+  margin: 5px;
+  padding: 5px 15px;
+  border: none;
+  background-color: var(--light-orange);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 5px;
 }

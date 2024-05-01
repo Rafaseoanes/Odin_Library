@@ -1,7 +1,16 @@
 const cardContainer = document.getElementById("mainContainer");
-const userInputDialog = document.getElementById("modal")
-const addBookButton = document.getElementById("addBookButton")
-const closeModalButton = document.getElementById("closeModalButton")
+
+const userInputDialog = document.getElementById("modal");
+const addBookModal = document.getElementById("addBookModal");
+const closeModalButton = document.getElementById("closeModalButton");
+const addBook = document.getElementById("addBook");
+
+//form inputs:
+
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
+const read = document.getElementById("read");
 
 const myLibrary = [
   {
@@ -22,7 +31,6 @@ const myLibrary = [
     pages: 40,
     read: false,
   },
-  
 ];
 
 function Book(title, author, pages, read) {
@@ -32,11 +40,13 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(newBook) {
+  myLibrary.push(newBook);
+  
 }
 
 function displayBooks(library) {
+  cardContainer.innerHTML = "";
   library.forEach((book) => {
     const carDiv = document.createElement("div");
     carDiv.classList.add("card");
@@ -56,24 +66,32 @@ function displayBooks(library) {
 
     const read = document.createElement("p");
     if (book.read) {
-      read.innerText = "Readed?: ✅";
+      read.innerText = "Read?: ✅";
     } else {
-      read.innerText = "Readed?: ⛔";
+      read.innerText = "Read?: ⛔";
     }
-    // read.innerText = book.read
     carDiv.appendChild(read);
-
-    console.log(`${book.author}`);
   });
 }
 
 displayBooks(myLibrary);
 
+addBookModal.addEventListener("click", () => {
+  userInputDialog.showModal();
+});
 
-addBookButton.addEventListener("click", () => {
-    userInputDialog.showModal();
-  });
+closeModalButton.addEventListener("click", () => {
+  userInputDialog.close();
+});
 
-  closeModalButton.addEventListener("click", () => {
-    userInputDialog.close();
-  });
+addBook.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const newBook = new Book(title.value, author.value, pages.value, read.value);
+  addBookToLibrary(newBook);
+  displayBooks(myLibrary);
+
+  console.log(newBook);
+//   console.log(myLibrary);
+  userInputDialog.close();
+});
