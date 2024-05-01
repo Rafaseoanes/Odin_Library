@@ -124,7 +124,7 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
-.deleteButton{
+.deleteButton {
   margin: 5px;
   padding: 5px 15px;
   border: none;
@@ -133,5 +133,4 @@ input::-webkit-inner-spin-button {
   font-size: small;
   font-weight: 500;
   border-radius: 5px;
-  
 }
