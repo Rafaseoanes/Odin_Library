@@ -69,6 +69,10 @@ function displayBooks(book) {
     read.innerText = "Read?: ⛔";
   }
 
+  const changeReadStatusButton = document.createElement("button");
+  changeReadStatusButton.classList.add("changeReadStatusButton");
+  changeReadStatusButton.innerText = "Change status";
+
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("deleteButton");
   deleteButton.innerText = "Delete";
@@ -82,7 +86,14 @@ function displayBooks(book) {
     // console.log("borraste", myLibrary)
   });
 
-  carDiv.append(title, author, read, pages, deleteButton);
+  carDiv.append(
+    title,
+    author,
+    pages,
+    read,
+    deleteButton,
+    changeReadStatusButton
+  );
 }
 
 openForm.addEventListener("click", () => {

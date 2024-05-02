@@ -125,12 +125,22 @@ input::-webkit-inner-spin-button {
 }
 
 .deleteButton {
-  margin: 5px;
-  padding: 5px 15px;
+  margin: 5px 3px;
+  padding: 5px 10px;
   border: none;
   background-color: var(--puce);
   color: white;
-  font-size: small;
+  font-size: smaller;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.changeReadStatusButton {
+  margin: 5px 3px;
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--light-orange);
+  color: white;
+  font-size: smaller;
   font-weight: 500;
   border-radius: 5px;
 }
