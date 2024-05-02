@@ -19,6 +19,9 @@ let myLibrary = [
     pages: 96,
     read: true,
     id: 0,
+    toggleReadStatus: function () {
+      this.read = !this.read;
+    },
   },
   {
     title: "IT",
@@ -26,6 +29,9 @@ let myLibrary = [
     pages: 1504,
     read: false,
     id: 1,
+    toggleReadStatus: function () {
+      this.read = !this.read;
+    },
   },
   {
     title: "How to Catch a Dinosaur",
@@ -33,6 +39,9 @@ let myLibrary = [
     pages: 40,
     read: false,
     id: 2,
+    toggleReadStatus: function () {
+      this.read = !this.read;
+    },
   },
 ];
 
@@ -41,6 +50,9 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.toggleReadStatus = function () {
+    this.read = !this.read;
+  };
 }
 
 function addBookToLibrary(newBook) {
@@ -77,13 +89,23 @@ function displayBooks(book) {
   deleteButton.classList.add("deleteButton");
   deleteButton.innerText = "Delete";
 
+  changeReadStatusButton.addEventListener("click", () => {
+    book.toggleReadStatus();
+
+    if (book.read) {
+      read.innerText = "Read?: ✅";
+    } else {
+      read.innerText = "Read?: ⛔";
+    }
+
+    console.log(book);
+  });
+
   deleteButton.addEventListener("click", (e) => {
     myLibrary = myLibrary.filter((currentBook) => {
       return currentBook.id !== book.id;
     });
     e.target.parentElement.remove();
-
-    // console.log("borraste", myLibrary)
   });
 
   carDiv.append(
@@ -117,7 +139,6 @@ addBook.addEventListener("click", (event) => {
   addBookToLibrary(newBook);
   displayBooks(myLibrary[newBook.id]);
 
-  // console.log(myLibrary[newBook.id])
   console.log(myLibrary);
 
   userInputDialog.close();
