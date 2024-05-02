@@ -12,6 +12,8 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 
+// Books placeholder:
+
 let myLibrary = [
   {
     title: "The little prince",
@@ -45,6 +47,7 @@ let myLibrary = [
   },
 ];
 
+//Book constructor:
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -55,10 +58,12 @@ function Book(title, author, pages, read) {
   };
 }
 
+//Add newly created book to library (array)
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
 }
 
+//Create HTML elements and show them on the DOM
 function displayBooks(book) {
   const carDiv = document.createElement("div");
   carDiv.classList.add("card");
@@ -89,6 +94,10 @@ function displayBooks(book) {
   deleteButton.classList.add("deleteButton");
   deleteButton.innerText = "Delete";
 
+  const cardButtons = document.createElement("div");
+  cardButtons.classList.add("cardButtons");
+  cardButtons.append(deleteButton, changeReadStatusButton);
+
   changeReadStatusButton.addEventListener("click", () => {
     book.toggleReadStatus();
 
@@ -97,25 +106,17 @@ function displayBooks(book) {
     } else {
       read.innerText = "Read?: ⛔";
     }
-
-    console.log(book);
   });
 
   deleteButton.addEventListener("click", (e) => {
     myLibrary = myLibrary.filter((currentBook) => {
       return currentBook.id !== book.id;
     });
-    e.target.parentElement.remove();
+    e.target.parentElement.parentElement.remove();
+    //        cardButtons    cardDiv
   });
 
-  carDiv.append(
-    title,
-    author,
-    pages,
-    read,
-    deleteButton,
-    changeReadStatusButton
-  );
+  carDiv.append(title, author, pages, read, cardButtons);
 }
 
 openForm.addEventListener("click", () => {
@@ -139,8 +140,6 @@ addBook.addEventListener("click", (event) => {
   addBookToLibrary(newBook);
   displayBooks(myLibrary[newBook.id]);
 
-  console.log(myLibrary);
-
   userInputDialog.close();
   event.preventDefault();
 });
@@ -149,4 +148,3 @@ function showPlaceholders(myLibrary) {
   myLibrary.forEach((element) => displayBooks(element));
 }
 showPlaceholders(myLibrary);
-console.log(myLibrary);
